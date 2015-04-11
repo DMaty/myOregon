@@ -1,13 +1,27 @@
 {
-  "name": "myoregon",
+  "name": "myOregon",
   "version": "0.0.0",
-  "private": true,
+  "homepage": "https://github.com/tenbridges/myOregon",
+  "authors": [
+    "dermot <dermot@tenbridges.com>"
+  ],
+  "main": "bower.json",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
   "dependencies": {
+    "angular-promise-tracker": "~2.1.0",
     "angular": "1.x",
     "angular-route": "1.x",
-    "mobile-angular-ui": "1.2.x",
-    "font-awesome": "4.2",
     "bootstrap": "3.x",
-    "directory": "js/bower_components"
+    "font-awesome": "4.2",
+    "mobile-angular-ui": "1.2.x",
+    "lodash": "~3.6.0",
+    "ng-lodash": "~0.2.0"
   }
 }
