@@ -1,16 +1,25 @@
 angular.module('MyOregon.controllers.Main', [])
-    .controller('MainController', ['serviceRidb', function ($scope, serviceRidb) {
+    .controller('MainController', ['ServiceRidb', function ($scope, ServiceRidb) {
 
     }])
-    .controller('OrgController', ['serviceRidb', function ($scope, serviceRidb) {
+    .controller('OrgController', ['ServiceRidb', '$http', function ($scope, ServiceRidb, $http) {
+        var theLists = this;
+        $scope.recarealist;
+        theLists.service = ServiceRidb();
+        console.log('serviece', theLists.service);
+        $scope.recarealist = theLists.service.getRecModel();
 
-        serviceRibd.orgainizations.get_list().then(
-            function (data) {
-                $log.debug(data);
-            },
-            function (error) {
-                $log.debug(error);
-            }
-        )
+        console.log('Im an gorg');
+
+    }])
+    .controller('CampController', ['ServiceRidb', '$http', function ($scope, ServiceRidb, $http) {
+        var theLists = this;
+        $scope.camplist;
+        theLists.service = ServiceRidb();
+        console.log('serviece', theLists.service);
+        $scope.recarealist = theLists.service.getCampModel();
+
+        console.log('Im an gorg');
 
     }]);
+

@@ -22,7 +22,7 @@ var config = {
     },
 
     server: {
-        host: '0.0.0.0',
+        host: '127.0.0.1',
         port: '8000'
     },
 
@@ -69,10 +69,9 @@ var gulp = require('gulp'),
     ngFilesort = require('gulp-angular-filesort'),
     streamqueue = require('streamqueue'),
     rename = require('gulp-rename'),
-    path = require('path');
-    bowerfy = require('main-bower-files');
-    util = require('gulp-util');
-
+    path = require('path'),
+    bowerfy = require('main-bower-files'),
+    gutil = require('gulp-util');
 
 
 /*================================================
@@ -81,6 +80,10 @@ var gulp = require('gulp'),
 
 gulp.on('error', function (e) {
     throw(e);
+    //gutil.log(e);
+});
+gulp.on('success', function (e) {
+    //gutil.log(e);
 });
 
 
@@ -157,13 +160,6 @@ gulp.task('fonts', function () {
 });
 
 
-
-gulp.task('bower', function () {
-    return gulp.src(bowerfy({filter: '*.js'}), {base: 'bower_components'})
-        .pipe(uglify().on('error', util.log))
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest(path.join(config.dest, './js/disdf')));
-});
 /*=================================================
  =            Copy html files to dest              =
  =================================================*/
@@ -228,6 +224,12 @@ gulp.task('js', function () {
         .pipe(gulp.dest(path.join(config.dest, 'js')));
 });
 
+gulp.task('bower', function () {
+    return gulp.src(bowerfy('**/*.js'), {base: './bower_components'})
+        .pipe(uglify())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest(path.join(config.dest, 'js')))
+});
 
 /*===================================================================
  =            Watch for source changes and rebuild/reload            =
@@ -263,7 +265,7 @@ gulp.task('weinre', function () {
  ======================================*/
 
 gulp.task('build', function (done) {
-    var tasks = ['html', 'fonts', 'images', 'less', 'js'];
+    var tasks = ['html', 'fonts', 'images', 'less', 'js', 'bower'];
     seq('clean', tasks, done);
 });
 

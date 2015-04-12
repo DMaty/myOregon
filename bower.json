@@ -22,6 +22,13 @@
     "font-awesome": "4.2",
     "mobile-angular-ui": "1.2.x",
     "lodash": "~3.6.0",
-    "ng-lodash": "~0.2.0"
+    "ng-lodash": "~0.2.0",
+    "restangular": "~1.5.1"
+  },
+  "overrides": {
+    "main": {
+     "src": "restangular.js"
+    }
   }
+  
 }
