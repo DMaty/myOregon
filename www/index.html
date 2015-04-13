@@ -9,7 +9,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="yes"/>
     <link rel="stylesheet" href="css/app.min.css"/>
     <link rel="stylesheet" href="css/responsive.min.css"/>
-    <script src="http://localhost:8001/target/target-script-min.js"></script>
     <script src="cordova.js"></script>
     <script src="/js/app.min.js"></script>
     <script src="/js/lodash/lodash.min.js"></script>
@@ -18,7 +17,7 @@
 
 
 </head>
-<body ng-app="MyOregon" ng-controller="MainController">
+<body ng-app="MyOregon" >
 
 <!-- Sidebars -->
 <div ng-include="'sidebar.html'" ui-track-as-search-param='true'
@@ -30,7 +29,7 @@
 
     <div class="navbar navbar-app navbar-absolute-top">
         <div class="navbar-brand navbar-brand-center" ui-yield-to="title">
-            Mobile Angular UI
+            MyOregon
         </div>
         <div class="btn-group pull-left">
             <div ui-toggle="uiSidebarLeft" class="btn sidebar-toggle">

@@ -6,7 +6,7 @@
 
 var config = {
     dest: 'www',
-    cordova: true,
+    cordova: false,
     minify_images: true,
 
     vendor: {
@@ -22,10 +22,10 @@ var config = {
     },
 
     server: {
-        host: '127.0.0.1',
+        host: '0.0.0.0',
         port: '8000'
-    },
-
+    }
+/*
     weinre: {
         httpPort: 8001,
         boundHost: 'localhost',
@@ -33,7 +33,7 @@ var config = {
         debug: false,
         readTimeout: 5,
         deathTimeout: 15
-    }
+    } */
 };
 
 
