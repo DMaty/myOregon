@@ -13,7 +13,7 @@ angular.module('MyOregon', [
         $routeProvider.when('/recareas', {
             templateUrl: 'organizations.html',
             reloadOnSearch: false,
-            controller: 'OrgController',
+            controller: 'OrgController'
         });
         $routeProvider.when('recreation', {templateUrl: 'recreations.html', reloadOnSearch: false});
         $routeProvider.when('/facilities', {templateUrl: 'facilities.html', reloadOnSearch: false});

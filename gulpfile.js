@@ -58,6 +58,7 @@ if (require('fs').existsSync('./config.js')) {
 
 var gulp = require('gulp'),
     seq = require('run-sequence'),
+    changed = require('gulp-changed'),
     connect = require('gulp-connect'),
     less = require('gulp-less'),
     uglify = require('gulp-uglify'),
@@ -168,6 +169,7 @@ gulp.task('fonts', function () {
 
 gulp.task('data', function () {
     return gulp.src(config.vendor.data)
+        .pipe(changed(path.join(config.dest,'data')))
         .pipe(gulp.dest(path.join(config.dest, 'data')));
 });
 
@@ -237,9 +239,10 @@ gulp.task('js', function () {
 
 gulp.task('bower', function () {
     return gulp.src(bowerfy('**/*.js'), {base: './bower_components'})
+        .pipe(changed(path.join(config.dest, 'js')))
         .pipe(uglify())
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest(path.join(config.dest, 'js')))
+        .pipe(gulp.dest(path.join(config.dest, 'js')));
 });
 
 /*===================================================================
