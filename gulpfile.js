@@ -132,12 +132,12 @@ gulp.task('connect', function () {
 /*==============================================================
  =            Setup live reloading on source changes            =
  ==============================================================*/
-
+/*
 gulp.task('livereload', function () {
     gulp.src(path.join(config.dest, '*.html'))
         .pipe(connect.reload());
 });
-
+*/
 
 /*=====================================
  =            Minify images            =
@@ -249,15 +249,15 @@ gulp.task('bower', function () {
  =            Watch for source changes and rebuild/reload            =
  ===================================================================*/
 
-gulp.task('watch', function () {
-    if (typeof config.server === 'object') {
-        gulp.watch([config.dest + '/**/*'], ['livereload']);
-    }
-    gulp.watch(['./src/html/**/*'], ['html']);
-    gulp.watch(['./src/less/**/*'], ['less']);
-    gulp.watch(['./src/js/**/*', './src/templates/**/*', config.vendor.js], ['js']);
-    gulp.watch(['./src/images/**/*'], ['images']);
-});
+//gulp.task('watch', function () {
+//    if (typeof config.server === 'object') {
+//        gulp.watch([config.dest + '/**/*'], ['livereload']);
+//    }
+//    gulp.watch(['./src/html/**/*'], ['html']);
+//    gulp.watch(['./src/less/**/*'], ['less']);
+//    gulp.watch(['./src/js/**/*', './src/templates/**/*', config.vendor.js], ['js']);
+//    gulp.watch(['./src/images/**/*'], ['images']);
+//s});
 
 
 /*===================================================
@@ -290,16 +290,17 @@ gulp.task('build', function (done) {
 
 gulp.task('default', function (done) {
     var tasks = [];
-
+/*
     if (typeof config.weinre === 'object') {
         tasks.push('weinre');
     }
-
+*/
     if (typeof config.server === 'object') {
         tasks.push('connect');
     }
 
-    tasks.push('watch');
+    //tasks.push('watch');
 
     seq('build', tasks, done);
 });
+

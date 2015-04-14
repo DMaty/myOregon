@@ -15,8 +15,6 @@ angular.module('MyOregon', [
             reloadOnSearch: false,
             controller: 'OrgController'
         });
-        $routeProvider.when('recreation', {templateUrl: 'recreations.html', reloadOnSearch: false});
-        $routeProvider.when('/facilities', {templateUrl: 'facilities.html', reloadOnSearch: false});
         $routeProvider.when('/campsites', {
             templateUrl: 'campsites.html',
             reloadOnSearch: false,
