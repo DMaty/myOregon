@@ -18,7 +18,14 @@ var config = {
 
         fonts: [
             './bower_components/font-awesome/fonts/fontawesome-webfont.*'
+        ],
+        bower: [
+            './bower_components/*'
+        ],
+        data: [
+            './src/data/*'
         ]
+        
     },
 
     server: {
@@ -61,7 +68,7 @@ var gulp = require('gulp'),
     ignore = require('gulp-ignore'),
     rimraf = require('gulp-rimraf'),
     imagemin = require('gulp-imagemin'),
-    pngcrush = require('imagemin-pngcrush'),
+    //pngcrush = require('imagemin-pngcrush'),
     templateCache = require('gulp-angular-templatecache'),
     mobilizer = require('gulp-mobilizer'),
     ngAnnotate = require('gulp-ng-annotate'),
@@ -80,10 +87,10 @@ var gulp = require('gulp'),
 
 gulp.on('error', function (e) {
     throw(e);
-    //gutil.log(e);
+    gutil.log(e);
 });
 gulp.on('success', function (e) {
-    //gutil.log(e);
+    gutil.log(e);
 });
 
 
@@ -142,7 +149,7 @@ gulp.task('images', function () {
         stream = stream.pipe(imagemin({
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],
-            use: [pngcrush()]
+      //      use: [pngcrush()]
         }));
     }
 
@@ -159,6 +166,10 @@ gulp.task('fonts', function () {
         .pipe(gulp.dest(path.join(config.dest, 'fonts')));
 });
 
+gulp.task('data', function () {
+    return gulp.src(config.vendor.data)
+        .pipe(gulp.dest(path.join(config.dest, 'data')));
+});
 
 /*=================================================
  =            Copy html files to dest              =
@@ -265,7 +276,7 @@ gulp.task('weinre', function () {
  ======================================*/
 
 gulp.task('build', function (done) {
-    var tasks = ['html', 'fonts', 'images', 'less', 'js', 'bower'];
+    var tasks = ['html', 'fonts', 'images', 'less', 'js', 'bower','data'];
     seq('clean', tasks, done);
 });
 

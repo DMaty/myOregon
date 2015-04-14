@@ -1,0 +1,11 @@
+--2015-04-13 14:25:03--  https://ridb.recreation.gov/api/v1/media.json?full&state=or&apikey=7FD5B3CDAE7245BF8B955752E865CEC4
+Resolving ridb.recreation.gov (ridb.recreation.gov)... 216.230.123.151
+Connecting to ridb.recreation.gov (ridb.recreation.gov)|216.230.123.151|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [application/json]
+Saving to: ‘media.json?full&state=or&apikey=7FD5B3CDAE7245BF8B955752E865CEC4’
+
+     0K .......... ...                                          156K=0.09s
+
+2015-04-13 14:25:03 (156 KB/s) - ‘media.json?full&state=or&apikey=7FD5B3CDAE7245BF8B955752E865CEC4’ saved [14287]
+
